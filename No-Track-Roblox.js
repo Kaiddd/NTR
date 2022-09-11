@@ -37,7 +37,7 @@ Changelog:
                 }
             }
         })
-        setTimeout(checkElements,1000);
+        setTimeout(checkElements,800);
     }
     checkElements()
 })();
