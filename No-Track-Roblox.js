@@ -37,7 +37,7 @@ Changelog:
                 }
             }
         })
-        setTimeout(checkElements,800);
+        setTimeout(checkElements,750); // should I idk, change it back or lower to say, 600 or something?
     }
     checkElements()
 })();
