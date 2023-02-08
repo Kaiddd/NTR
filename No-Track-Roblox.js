@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         No-Track Roblox (NTR)
-// @version      1.1
+// @version      1.2
 // @description  Removes Roblox's tracking from game redirects
-// @author       Kaid#0001
+// @author       Kaid
 // @match        *://*.roblox.com/*
 // ==/UserScript==
 
 /*
 Changelog:
+1.2: Fixed servers tab and possibly some other bugs
 1.1: Removed /refer entirely!
 1.0: Initial Release
 */
@@ -18,14 +19,10 @@ Changelog:
 (function() {
     'use strict';
 
-    let elementsCollectionUwU
-    let elementsArrayUwU
     function checkElements()
     {
-        elementsCollectionUwU = document.getElementsByTagName('a')
-        elementsArrayUwU = Array.from(elementsCollectionUwU)
-        elementsArrayUwU.forEach(el => {
-            if (el.href.includes("roblox.com/games")){
+        Array.from(document.getElementsByTagName('a')).forEach(el => {
+            if (el.href.includes("roblox.com/games") && (!el.getAttribute("class") || el.getAttribute("class") != "rbx-tab-heading")){
                 if (el.href.includes("roblox.com/games/refer?")){
                     let gameId = el.href.match(/PlaceId.+?(?=&)/g)[0]
                     if (gameId) {
